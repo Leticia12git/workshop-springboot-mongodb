@@ -6,18 +6,16 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import javax.persistence.Entity;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-@Entity
 @RestController
 @RequestMapping(value = "/users")
 public class UserResource {
 
     @Autowired
-    UserService userService;
+    private UserService userService;
 
     @GetMapping
     public ResponseEntity<List<User>> findAll(){
@@ -25,7 +23,7 @@ public class UserResource {
         User maria = new User("1001", "Maria Brown", "maria@gmail.com");
         User alex = new User("1002", "Alex Green", "alex@gmail.com");
         list.addAll(Arrays.asList(maria, alex));
-        return ResponseEntity.ok().build();
+        return ResponseEntity.ok().body(list);
 
     }
     @GetMapping(value = "/{id}")
