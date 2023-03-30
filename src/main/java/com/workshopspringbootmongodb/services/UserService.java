@@ -13,13 +13,13 @@ import java.util.Optional;
 public class UserService {
 
     @Autowired
-    UserRepository userRepository;
+    private UserRepository userRepository;
 
     public List<User> findAll(){
         return userRepository.findAll();
     }
 
-    public User findById(Long id){
+    public User findById(String id){
         Optional<User> obj = userRepository.findById(id);
         return obj.orElseThrow(()-> new ObjectNotFoundException("Objeto não encontrado"));
 

@@ -3,7 +3,6 @@ package com.workshopspringbootmongodb.domain;
 import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.data.mongodb.core.mapping.Document;
 
-import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -11,8 +10,8 @@ import java.io.Serial;
 import java.io.Serializable;
 import java.util.Objects;
 
-@Entity
-@Document
+
+@Document(collection = "user")
 public class User implements Serializable {
 
     @Serial
@@ -33,6 +32,14 @@ public class User implements Serializable {
         this.id = id;
         this.name = name;
         this.email = email;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
     }
 
     public String getName() {
