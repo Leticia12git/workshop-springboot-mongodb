@@ -1,6 +1,7 @@
 package com.workshopspringbootmongodb.services;
 
 import com.workshopspringbootmongodb.domain.User;
+import com.workshopspringbootmongodb.dto.UserDTO;
 import com.workshopspringbootmongodb.repositories.UserRepository;
 import org.hibernate.ObjectNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,7 +16,7 @@ public class UserService {
     @Autowired
     private UserRepository userRepository;
 
-    public List<User> findAll(){
+    public List<UserDTO> findAll(){
         return userRepository.findAll();
     }
 
