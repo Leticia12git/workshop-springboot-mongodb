@@ -25,9 +25,9 @@ public class UserResource {
 
     }
     @GetMapping(value = "/{id}")
-    public ResponseEntity<User> findById(@PathVariable String id){
-        userService.findById(id);
-        return ResponseEntity.ok().build();
+    public ResponseEntity<UserDTO> findById(@PathVariable String id){
+        User obj =  userService.findById(id);
+        return ResponseEntity.ok().body(new UserDTO(obj));
     }
 
     @PostMapping
