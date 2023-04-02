@@ -4,7 +4,6 @@ import com.workshopspringbootmongodb.domain.Post;
 import com.workshopspringbootmongodb.repositories.PostRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.w3c.dom.stylesheets.LinkStyle;
 
 import java.util.List;
 import java.util.Optional;
@@ -21,6 +20,6 @@ public class PostService {
     }
 
     public List<Post> findByTitle(String text){
-        return postRepository.findByTitleContainingIgnoreCase(text);
+        return postRepository.searchTitle(text);
     }
 }
