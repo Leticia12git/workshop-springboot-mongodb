@@ -31,7 +31,7 @@ public class UserService {
     }
 
     public User fromDTO(UserDTO userDTO){
-        return new UserDTO(userDTO.getId(),userDTO.getName(),userDTO.getEmail());
+        return new User(userDTO.getId(),userDTO.getName(),userDTO.getEmail());
     }
     public User update(User obj) {
         User newObj = findById(obj.getId());
@@ -45,6 +45,7 @@ public class UserService {
     }
 
     public void delete(String id){
+        findById(id);
         userRepository.deleteById(id);
     }
 
