@@ -13,7 +13,7 @@ public class PostService {
     @Autowired
     PostRepository postRepository;
 
-    public Post findById(Long id){
+    public Post findById(String id){
         Optional<Post> newPost = postRepository.findById(id);
         return postRepository.findById(id).get();
     }
